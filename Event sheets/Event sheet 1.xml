@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="1" name="TILESIZE" sid="796953709693908" static="0" type="number">32</variable>
+        <variable constant="0" name="minY" sid="462331222431579" static="0" type="number">100000000</variable>
+        <variable constant="0" name="minX" sid="209987533695949" static="0" type="number">100000000</variable>
+        <variable constant="0" name="maxY" sid="377175018585098" static="0" type="number">0</variable>
+        <variable constant="0" name="maxX" sid="105978763329663" static="0" type="number">0</variable>
+        <variable constant="0" name="sSx" sid="394923900640952" static="0" type="number">0</variable>
+        <variable constant="0" name="sSy" sid="905514518870842" static="0" type="number">0</variable>
+        <variable constant="0" name="sMx" sid="195903133541994" static="0" type="number">0</variable>
+        <variable constant="0" name="sMy" sid="283053726216964" static="0" type="number">0</variable>
+        <variable constant="0" name="dragging" sid="142866068623613" static="0" type="number">0</variable>
+        <event-group description="" sid="296337185415324" title="Camera">
+            <sub-events>
+                <event-block sid="112068983389989">
+                    <conditions>
+                        <condition id="0" name="On click" sid="602758761485682" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="842606220248818" type="System">
+                            <param id="0" name="Variable">dragging</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="724014356850947" type="System">
+                            <param id="0" name="Variable">sMx</param>
+                            <param id="1" name="Value">Mouse.AbsoluteX</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="272948168855805" type="System">
+                            <param id="0" name="Variable">sMy</param>
+                            <param id="1" name="Value">Mouse.AbsoluteY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="790597739334666">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Mouse button is down" sid="183491602972723" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="861034348202117" type="System">
+                            <param id="0" name="Variable">dragging</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="799464543513129" type="System">
+                            <param id="0" name="Variable">sSx</param>
+                            <param id="1" name="Value">scrollX</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="971887571552863" type="System">
+                            <param id="0" name="Variable">sSy</param>
+                            <param id="1" name="Value">scrollY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="993040233448207">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="646938331119199" type="System">
+                            <param id="0" name="Variable">dragging</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Scroll to position" sid="817742759549512" type="System">
+                            <param id="0" name="X">sSX+sMX-Mouse.AbsoluteX</param>
+                            <param id="1" name="Y">sSY+sMY-Mouse.AbsoluteY</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="734217569213762">
+            <conditions>
+                <condition id="0" name="On function" sid="433364255683893" type="Function">
+                    <param id="0" name="Name">&quot;CalcExtremes&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="216551707832723">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="560474736684791" type="System">
+                            <param id="0" name="Object">Bark</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="174624805201452" type="System">
+                            <param id="0" name="Variable">minY</param>
+                            <param id="1" name="Value">min(minY, Bark.Y)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="122773253862069" type="System">
+                            <param id="0" name="Variable">minX</param>
+                            <param id="1" name="Value">min(minX, Bark.X)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="663252122239301" type="System">
+                            <param id="0" name="Variable">maxX</param>
+                            <param id="1" name="Value">max(maxX, Bark.X)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="854770467029436" type="System">
+                            <param id="0" name="Variable">maxY</param>
+                            <param id="1" name="Value">max(maxY, Bark.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="791015588746207">
+            <conditions>
+                <condition id="0" name="On function" sid="759237535534951" type="Function">
+                    <param id="0" name="Name">&quot;SetArraySize&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="xSize" sid="464147654437272" static="0" type="number">0</variable>
+                <variable constant="0" name="ySize" sid="141378493887522" static="0" type="number">0</variable>
+                <event-block sid="770911909412236">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="192646993514797" type="System">
+                            <param id="0" name="Variable">xSize</param>
+                            <param id="1" name="Value">round((maxX - minX)/TILESIZE) + 1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="974678907082701" type="System">
+                            <param id="0" name="Variable">ySize</param>
+                            <param id="1" name="Value">round((maxY - minY)/TILESIZE) +1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="892440116345569">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="375965042345710" type="System">
+                                    <param id="0" name="First value">xSize%2</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="181431480129179" type="System">
+                                    <param id="0" name="Variable">xSize</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="883414469171962">
+                            <conditions />
+                            <actions>
+                                <action id="1" name="Set size" sid="787799163071931" type="Tree">
+                                    <param id="0" name="Width">xSize</param>
+                                    <param id="1" name="Height">ySize</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="153960658019322">
+            <conditions>
+                <condition id="0" name="On function" sid="754385356054928" type="Function">
+                    <param id="0" name="Name">&quot;FillTreeArray&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="718589319377143">
+                    <conditions>
+                        <condition id="-10" name="For" sid="712061622072229" type="System">
+                            <param id="0" name="Name">&quot;xIDX&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">Tree.Width - 1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="648475601024611">
+                            <conditions>
+                                <condition id="-10" name="For" sid="989871949900926" type="System">
+                                    <param id="0" name="Name">&quot;yIDX&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">Tree.Height - 1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="258534808947904">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="208053827073657" type="Cursor">
+                                            <param id="0" name="X">(loopindex(&quot;xIDX&quot;) * TILESIZE) + minX</param>
+                                            <param id="1" name="Y">(loopindex(&quot;yIDX&quot;) * TILESIZE) + minY</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="464683143926453">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="442863977676382" type="Cursor">
+                                                    <param id="0" name="Object">Bark</param>
+                                                </condition>
+                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="777308551060782" type="Cursor">
+                                                    <param id="0" name="Object">Liane</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="3" name="Set at XY" sid="556478018413308" type="Tree">
+                                                    <param id="0" name="X">loopindex(&quot;xIDX&quot;)</param>
+                                                    <param id="1" name="Y">Tree.Height - loopindex(&quot;yIDX&quot;) - 1</param>
+                                                    <param id="2" name="Value">Bark.AnimationFrame + 1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="117724406268403">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="759382620960930" type="Cursor">
+                                                    <param id="0" name="Object">Bark</param>
+                                                </condition>
+                                                <condition id="1" name="Is overlapping another object" sid="462879807884927" type="Cursor">
+                                                    <param id="0" name="Object">Liane</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="3" name="Set at XY" sid="754076913960038" type="Tree">
+                                                    <param id="0" name="X">loopindex(&quot;xIDX&quot;)</param>
+                                                    <param id="1" name="Y">Tree.Height - loopindex(&quot;yIDX&quot;) - 1</param>
+                                                    <param id="2" name="Value">100 + Bark.AnimationFrame + 1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="977201529496801">
+                                            <conditions>
+                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="658223083918750" type="Cursor">
+                                                    <param id="0" name="Object">Bark</param>
+                                                </condition>
+                                                <condition id="1" name="Is overlapping another object" sid="804227042830846" type="Cursor">
+                                                    <param id="0" name="Object">Liane</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="3" name="Set at XY" sid="869745500236148" type="Tree">
+                                                    <param id="0" name="X">loopindex(&quot;xIDX&quot;)</param>
+                                                    <param id="1" name="Y">Tree.Height - loopindex(&quot;yIDX&quot;) - 1</param>
+                                                    <param id="2" name="Value">200</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="926997146654035">
+            <conditions>
+                <condition id="0" name="On clicked" sid="476813090871592" type="save" />
+                <condition id="-8" name="Compare two values" sid="302929694698434" type="System">
+                    <param id="0" name="First value">len(filename.Text)</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="508105332529751" type="Function">
+                    <param id="0" name="Name">&quot;CalcExtremes&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-16" name="Wait" sid="729332647829587" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="0" name="Call function" sid="947012770841124" type="Function">
+                    <param id="0" name="Name">&quot;SetArraySize&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-16" name="Wait" sid="781973572202734" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="0" name="Call function" sid="410028313441034" type="Function">
+                    <param id="0" name="Name">&quot;FillTreeArray&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-16" name="Wait" sid="635479589775064" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="12" name="Download" sid="973263045835225" type="Tree">
+                    <param id="0" name="Filename">filename.Text &amp; &quot;.json&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="263287692293570">
+            <conditions>
+                <condition id="0" name="On clicked" sid="699513639704514" type="save" />
+                <condition id="-8" name="Compare two values" sid="356019990414399" type="System">
+                    <param id="0" name="First value">len(filename.Text)</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="698785857650724" type="filename">
+                    <param id="0" name="Text">&quot;Almeno 3 lettere pls&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
