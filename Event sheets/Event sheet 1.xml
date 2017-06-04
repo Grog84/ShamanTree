@@ -13,6 +13,42 @@
         <variable constant="0" name="sMx" sid="195903133541994" static="0" type="number">0</variable>
         <variable constant="0" name="sMy" sid="283053726216964" static="0" type="number">0</variable>
         <variable constant="0" name="dragging" sid="142866068623613" static="0" type="number">0</variable>
+        <event-block sid="962856561339147">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="370380863454338" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="163753737065240">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="126109694170995" type="nbrs">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="927540794493918" type="nbrs">
+                            <param id="0" name="Text">Bark.Count</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="777923152186760">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="164363450292518" type="nbrs">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="358497347656058" type="nbrs">
+                            <param id="0" name="Text">Liane.Count</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-group description="" sid="296337185415324" title="Camera">
             <sub-events>
                 <event-block sid="112068983389989">
