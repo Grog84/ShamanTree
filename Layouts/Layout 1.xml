@@ -1613,8 +1613,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>640</x>
-                        <y>160</y>
+                        <x>608</x>
+                        <y>-64</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
